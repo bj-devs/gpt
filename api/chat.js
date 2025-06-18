@@ -11,7 +11,7 @@ const openai = {
     const res = await fetch('https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyDcCVo5afkPL40sKBf8j3ZACpiDGU74xj4', {
       method: 'POST',
       headers: {
-        'User-Agent': 'TheFUCK/2.1.0 (Windows; U; Android 99; itel Apalo Build/SBY.9SJU9.1909)',
+        'User-Agent': 'Mozilla/5.0',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ clientType: "CLIENT_TYPE_ANDROID" })
@@ -24,7 +24,7 @@ const openai = {
       method: 'POST',
       headers: {
         'authorization': `Bearer ${token}`,
-        'content-type': 'application/json; charset=utf-8'
+        'content-type': 'application/json'
       },
       body: JSON.stringify({ data: { deviceid } })
     });
@@ -37,7 +37,7 @@ const openai = {
       if (!openai.models.includes(model)) throw new Error("Invalid model.");
       if (!messageText) throw new Error("Text is required.");
 
-      const deviceid = crypto.randomBytes(32).toString('hex');
+      const deviceid = crypto.randomBytes(16).toString('hex');
       const token = openai.n || await openai.s();
       await openai.t(token, deviceid);
 
@@ -45,7 +45,7 @@ const openai = {
         method: 'POST',
         headers: {
           'authorization': `Bearer ${token}`,
-          'content-type': 'application/json; charset=utf-8'
+          'content-type': 'application/json'
         },
         body: JSON.stringify({
           data: JSON.stringify({

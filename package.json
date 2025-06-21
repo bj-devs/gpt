@@ -1,4 +1,7 @@
 {
   "name": "google-image-api",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "puppeteer-core": "^21.0.0"
+  }
 }

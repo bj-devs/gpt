@@ -1,15 +1,9 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "api/google-image.js",
-      "use": "@vercel/node"
-    }
+    { "src": "api/google-image.js", "use": "@vercel/node" }
   ],
   "routes": [
-    {
-      "src": "/api/google-image",
-      "dest": "/api/google-image.js"
-    }
+    { "src": "/api/google-image", "dest": "/api/google-image.js" }
   ]
 }
